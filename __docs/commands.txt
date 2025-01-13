@@ -1,0 +1,7 @@
+git checkout -b nome-da-branch
+
+php artisan list
+
+php artisan migrate
+
+php artisan db:seed --class=DatabaseSeeder
