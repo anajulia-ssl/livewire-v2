@@ -19,6 +19,14 @@ class Count extends Component
         $this->nome = str($this->nome)->$tipo();
     }
 
+    public function send(): void
+    {
+        $this->emitTo(
+            Todo::class,
+            'mudaai', $this->nome
+        );
+    }
+
     public function render(): View
     {
         return view('livewire.count');
