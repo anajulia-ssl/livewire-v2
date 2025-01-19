@@ -3,7 +3,6 @@
         Editar
     </x-secondary-button>
 
-    {{ $show ? 'show' : 'nada' }}
     <x-modal name="confirm-user-deletion" :show="$show" focusable>
         <div class="mt-6 flex justify-end">
             <x-secondary-button x-on:click="$dispatch('close')">
