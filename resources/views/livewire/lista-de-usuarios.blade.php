@@ -1,7 +1,5 @@
 <div>
-    <h1>Usuarios</h1>
-
-    <div class="my-4">
+    <div class="mb-4">
         <x-text-input wire:model="search" placeholder="Pesquisar nome" ></x-text-input>
         <x-text-input wire:model="searchEmail" placeholder="Pesquisar email" ></x-text-input>
         <select class="text-black" wire:model="perPage">

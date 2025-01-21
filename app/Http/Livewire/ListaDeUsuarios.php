@@ -50,7 +50,8 @@ class ListaDeUsuarios extends Component
                 ->when($this->sortBy, function (Builder $query) {
                     $query->orderBy($this->sortBy, $this->sortDir);
                 })->paginate($this->perPage)
-//                ->when($this->search, fn (Builder $q) => $q->where('name', 'like', '%' . $this->search . '%'))
-        ]);
+
+            ])->layout('layouts.app', ['header' => 'Usuários']);
+//            ])->layout('layouts.app'); se fossse só isso, nao precisava colocar pq é padrão
     }
 }
