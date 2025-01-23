@@ -4,12 +4,14 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class ListaDeUsuarios extends Component
 {
     use WithPagination;
+    use AuthorizesRequests;
 
     public ?string $search = null;
     public ?string $searchEmail = null;
@@ -31,6 +33,10 @@ class ListaDeUsuarios extends Component
     public function sort($coluna){
         $this->sortDir = $this->sortDir == 'asc' ? 'desc' : 'asc';
         $this->sortBy = $coluna;
+    }
+
+    public function mount(){
+        $this->authorize('users::list');
     }
 
     public function updating(){
