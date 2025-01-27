@@ -2,14 +2,13 @@
 
 namespace App\Http\Livewire;
 
-use App\Rules\CustomRule;
-use Barryvdh\Debugbar\Facades\Debugbar;
+use App\Models\User;
 use Livewire\Component;
 
 class CriarUsuario extends Component
 {
-    public string $nome = '';
-    public string $email = '';
+    public ?string $nome = '';
+    public ?string $email = '';
 //    protected array $rules = [
 //        'nome' => ['required', 'min:3', 'max:255'],
 //        'email' => ['required', 'email', 'max:255'],
@@ -36,6 +35,15 @@ class CriarUsuario extends Component
         if($this->nome === 'Teste'){
             $this->addError('nome', 'Deixe os testes pro ambiente de teste');
         }
+
+        User::create([
+            'name' => $this->nome,
+            'email' => $this->email,
+            'password' => 'senha123',
+        ]);
+
+        $this->emit('user::created');
+        $this->reset('nome', 'email');
     }
 
     public function render()
