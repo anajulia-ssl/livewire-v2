@@ -31,6 +31,8 @@ class CriarUsuario extends Component
 
     public function save()
     {
+        sleep(2);
+
         $this->validate();
         if($this->nome === 'Teste'){
             $this->addError('nome', 'Deixe os testes pro ambiente de teste');

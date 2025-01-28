@@ -21,7 +21,12 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <x-primary-button class="ml-3">
+            <x-primary-button class="ml-3"
+                              wire:target="save"
+            >
+                <span wire:loading wire:target="save" class="animate-bounce">
+                    🔥
+                </span>
                 {{ __('Save') }}
             </x-primary-button>
         </div>
