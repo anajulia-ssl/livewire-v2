@@ -30,5 +30,16 @@
                 {{ __('Save') }}
             </x-primary-button>
         </div>
+
+        @dump($saving)
+        <div x-data="{open: @entangle('saving')}">
+            <div x-show="open">
+                Vai aparecer
+            </div>
+{{--            <button type="button" x-on:click="$wire.save">Saving 2</button>--}}
+            <button type="button" wire:click="save">Saving 2</button>
+            <br>
+            <button type="button" x-on:click="open = false">Voltar</button>
+        </div>
     </form>
 </div>

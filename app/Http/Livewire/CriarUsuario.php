@@ -9,6 +9,7 @@ class CriarUsuario extends Component
 {
     public ?string $nome = '';
     public ?string $email = '';
+    public bool $saving = false;
 //    protected array $rules = [
 //        'nome' => ['required', 'min:3', 'max:255'],
 //        'email' => ['required', 'email', 'max:255'],
@@ -31,6 +32,7 @@ class CriarUsuario extends Component
 
     public function save()
     {
+        $this->saving = true;
         sleep(2);
 
         $this->validate();
